@@ -1,0 +1,87 @@
+.joinWrap {
+  padding: 100px 0 33px;
+  display: grid;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+.joinContainer {
+  display: flex;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.joinBenefitGrid {
+  display: flex;
+}
+
+.joinContainer h2 {
+  font-size: 24px;
+  color: #f9475e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto 30px;
+}
+
+.benefitCard {
+  background-color: rgb(228, 225, 224);
+  width: 240px;
+  height: 200px;
+  display: grid;
+  align-items: center;
+  margin: 20px;
+  padding: 24px 28px;
+  border-radius: 8px;
+}
+
+.benefitCard p {
+  font-size: 12px;
+}
+
+.joinDesc {
+  font-size: 12px;
+  display: grid;
+  align-items: center;
+  gap: 6px;
+}
+
+.joinDesc p {
+  padding: 12px 8px;
+}
+
+.snsBtnSection {
+  margin: 0 auto;
+  gap: 20px;
+  display: flex;
+  padding: 30px;
+}
+
+.snsBtnSection .btn_kakao {
+  background-color: #ffe01a;
+  font-weight: bold;
+  padding: 8px 40px;
+  border-radius: 12px;
+}
+.snsBtnSection .btn_naver {
+  background-color: #04b81f;
+  color: aliceblue;
+  font-weight: bold;
+  padding: 8px 40px;
+  border-radius: 12px;
+}
+
+.agreementSection {
+  display: grid;
+  text-align: center;
+  padding: 60px;
+}
+
+.nextBtn {
+  width: 300px;
+  padding: 12px 8px;
+  border-radius: 12px;
+  display: grid;
+  margin: 0 auto;
+  align-items: center;
+}

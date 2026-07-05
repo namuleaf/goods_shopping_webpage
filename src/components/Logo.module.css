@@ -1,0 +1,13 @@
+.logo {
+  width: 70px;
+}
+path {
+  transition: 0.3s;
+}
+
+.logo:hover path:nth-child(1) {
+  fill: var(--accent-dark);
+}
+.logo:hover path:nth-child(2) {
+  fill: var(--text-light); /* <-- CSS 변수에서 var(--text-light)으로 변경 */
+}

@@ -1,0 +1,26 @@
+.list {
+  padding: 12px 15px;
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  border-bottom: 1px solid #f5f5f5;
+  transition: all 0.2s ease;
+  border-left: 4px solid transparent;
+}
+
+/* 마지막 아이템은 밑줄 제거 */
+.list:last-child {
+  border-bottom: none;
+}
+
+.list:hover {
+  background-color: var(--bg-light);
+  color: var(--);
+  border-left-color: var(--accent-warm);
+}
+
+.list.active {
+  background-color: var(--accent-dark);
+  border-left-color: var(--accent-warm);
+  color: var(--white);
+  font-weight: 600;
+}

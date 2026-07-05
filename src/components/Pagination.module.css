@@ -1,0 +1,29 @@
+.paginationArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 33px 0;
+}
+
+.paginationArea button {
+  border: none;
+  outline: none;
+  background: var(--white);
+  border-radius: 8px;
+  padding: 8px;
+  transition: 0.3s;
+  min-width: 40px;
+  cursor: pointer;
+}
+
+.paginationArea button:hover:not(:disabled),
+.paginationArea button.active {
+  background-color: var(--accent);
+  color: var(--white);
+}
+
+.paginationArea button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

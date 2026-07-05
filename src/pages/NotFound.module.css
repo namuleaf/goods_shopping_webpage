@@ -1,0 +1,70 @@
+/* 화면 중앙 정렬을 위한 컨테이너 */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  text-align: center;
+  padding: 20px;
+}
+
+.content {
+  max-width: 600px;
+}
+
+/* 거대한 에러 텍스트 */
+.errorCode {
+  font-size: 120px;
+  font-weight: 900;
+  color: var(--accent);
+  margin-bottom: 20px;
+  opacity: 0.5;
+  letter-spacing: 5px;
+}
+
+/* 페이지 제목 */
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+/* 설명 텍스트 */
+.desc {
+  font-size: var(--fs-md);
+  color: var(--text-light);
+  margin-bottom: 50px;
+}
+
+/* 홈으로 돌아가기 버튼 */
+.homeBtn {
+  display: inline-block;
+  padding: 15px 40px;
+  background-color: var(--text);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: var(--fs-md);
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.homeBtn:hover {
+  background-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 반응형 모바일 */
+@media (max-width: 768px) {
+  .errorCode {
+    font-size: 80px;
+  }
+  .title {
+    font-size: 20px;
+  }
+  .desc {
+    font-size: var(--fs-sm);
+  }
+}

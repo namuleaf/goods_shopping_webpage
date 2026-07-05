@@ -1,0 +1,358 @@
+.container {
+  margin-top: 100px;
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.userPageCat {
+  width: 220px;
+  flex-shrink: 0;
+  background: #fafafa;
+  border-radius: 24px;
+  padding: 24px 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+}
+
+.userPageCat h2 {
+  margin: 0 0 16px;
+  font-size: 20px;
+}
+
+.userPageCat ul {
+  padding: 0;
+  margin: 0;
+}
+
+.userPageCat li {
+  list-style: none;
+  margin: 14px 0;
+  color: #444;
+}
+
+.content {
+  flex: 1;
+}
+
+.banner {
+  display: grid;
+  gap: 24px;
+}
+
+.profileSection {
+  display: grid;
+  gap: 20px;
+}
+
+.basicProfile {
+  background: linear-gradient(135deg, #fff9ef, #ffffff);
+  border-radius: 28px;
+  padding: 28px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.profileImage {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 28px;
+  background: #fff;
+  flex-shrink: 0;
+}
+
+.basicProfile h2 {
+  margin: 0 0 8px;
+  color: var(--dark-bg);
+}
+
+.basicProfile p {
+  margin: 6px 0 0;
+  color: #555;
+}
+
+.deliveryCard {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 28px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+  display: grid;
+  gap: 14px;
+  width: 100%;
+  min-width: 720px;
+}
+
+.deliveryCard h2 {
+  margin: 0;
+}
+
+.description {
+  margin: 0;
+  color: #666;
+}
+
+.label {
+  font-weight: 600;
+}
+
+.dateInput {
+  width: 100%;
+  max-width: 260px;
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-size: 16px;
+}
+
+.resultBox {
+  background: #fff8ed;
+  border: 1px solid #f2d7aa;
+  border-radius: 20px;
+  padding: 18px;
+  display: grid;
+  gap: 8px;
+}
+
+.resultBox p {
+  margin: 0;
+}
+
+.resultBox small {
+  color: #7a5a22;
+}
+
+.gradeBasicBanner {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.gradeCard {
+  background: #fff;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f2efe8;
+}
+
+.gradeCard h3 {
+  margin: 0 0 14px;
+}
+
+.gradeCard p {
+  margin: 8px 0 0;
+  color: #555;
+}
+
+.catalogSection {
+  background: linear-gradient(180deg, #ffffff, #fffaf2);
+  border-radius: 28px;
+  padding: 28px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
+  display: grid;
+  gap: 22px;
+}
+
+.catalogHeader {
+  display: grid;
+  gap: 16px;
+}
+
+.catalogHeader h3 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.catalogHeader p {
+  margin: 6px 0 0;
+  color: #666;
+}
+
+.catalogTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.catalogTab {
+  border: 1px solid #eadfc9;
+  background: #fff;
+  color: #5c4a24;
+  border-radius: 999px;
+  padding: 11px 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.catalogTab:hover {
+  transform: translateY(-1px);
+}
+
+.catalogTabActive {
+  background: var(--accent-warm);
+  color: #fff;
+  border-color: var(--accent-warm);
+}
+
+.catalogGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.catalogCard {
+  overflow: hidden;
+  border-radius: 24px;
+  background: #fff;
+  border: 1px solid #f2efe8;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05);
+}
+
+.catalogImageWrap {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(135deg, #f7f4ee, #ffffff);
+}
+
+.catalogImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 18px;
+}
+
+.catalogBadge {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  background: rgba(26, 78, 216, 0.95);
+  color: #fff;
+  border-radius: 999px;
+  padding: 7px 11px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.catalogInfo {
+  padding: 18px 18px 20px;
+  display: grid;
+  gap: 8px;
+}
+
+.catalogInfo h4 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.catalogCategoryLabel {
+  margin: 0;
+  color: var(--accent-dark);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.catalogSummary {
+  margin: 0;
+  color: #666;
+  line-height: 1.5;
+}
+
+.catalogInfo strong {
+  color: var(--accent);
+  font-size: 18px;
+}
+
+.benefitSection {
+  background: #fffdf9;
+  border-radius: 28px;
+  padding: 28px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
+}
+
+.benefitSection h3 {
+  margin: 0 0 18px;
+}
+
+.benefitGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.benefitCard {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 20px;
+  border: 1px solid #f2efe8;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.benefitCard span {
+  display: inline-flex;
+  width: 34px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--accent-warm);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.benefitCard h4 {
+  margin: 14px 0 8px;
+}
+
+.benefitCard p {
+  margin: 0;
+  color: #666;
+  line-height: 1.6;
+}
+
+.tierSubtitle {
+  margin-top: 8px !important;
+}
+
+.tierList {
+  margin: 14px 0 0;
+  padding-left: 18px;
+  color: #555;
+  display: grid;
+  gap: 6px;
+}
+
+.tierList li {
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    margin-top: 120px;
+  }
+
+  .userPageCat {
+    width: 100%;
+  }
+
+  .basicProfile {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .gradeBasicBanner,
+  .benefitGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .catalogGrid {
+    grid-template-columns: 1fr;
+  }
+}

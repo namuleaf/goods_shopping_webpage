@@ -1,0 +1,155 @@
+/* 전체 컨테이너 */
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+/* 헤더 영역 */
+.header {
+  text-align: center;
+  margin-bottom: 80px;
+  margin-top: 30px;
+}
+
+.title {
+  font-size: 36px;
+  color: var(--accent);
+  margin-bottom: 15px;
+  font-weight: normal;
+}
+
+.subtitle {
+  font-size: var(--fs--md);
+  color: var(--text-light);
+}
+
+/* 브랜드 스토리 */
+.storySection {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 100px;
+}
+
+.imgWrap {
+  flex: 1;
+  height: 400px;
+  background-color: var(--bg-light);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.imgWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.textWrap {
+  flex: 1;
+}
+
+.textWrap h3 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: var(--text);
+}
+
+.textWrap p {
+  font-size: var(--fs-md);
+  line-height: 1.8;
+  color: var(--text-mid);
+  margin-bottom: 15px;
+}
+
+/* 스켈레톤 UI */
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--border);
+  border-radius: 4px;
+}
+
+/* 빛이 지나가는 효과 */
+.skeleton::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation-name: shimmer;
+  animation-timing-function: ease-in-out;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  transform: translateX(0%);
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* 핵심 가치 */
+.valueSection {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  text-align: center;
+  padding: 60px 0;
+  border-top: 1px solid var(--border);
+}
+
+.valueItem {
+  padding: 20px;
+}
+
+.valueItem i {
+  display: inline-block;
+  font-size: 40px;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.valueItem h4 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.valueItem p {
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  color: var(--text--light);
+}
+
+/* 반응형 */
+@media (max-width: 900px) {
+  .storySection {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .imgWrap {
+    width: 100%;
+    height: 300px;
+  }
+  .valueSection {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+}

@@ -1,0 +1,43 @@
+.widgetContainer {
+    margin-top: 30px;
+    position: sticky;
+    background-color: white;
+    display: grid;
+    bottom:0;
+    border-radius: 30px;
+    right: 12px;
+    max-width: 324px;
+}
+
+.widgetHeader{
+    background: var(--dark-bg);
+    color: white;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    
+    padding:10px
+}
+
+.widgetTabSection{
+    background-color: var(--dark-bg);
+    color: var(--accent-warm);
+    font-weight: bold;
+}
+
+.messageRow {
+    padding:12px 30px;
+
+}
+
+.chatbotBubble {
+     background-color: #eeecec;
+     border-radius: 20px;
+     padding: 15px 8px;
+        margin-bottom: 150px;
+}
+
+.moment{
+     background-color: #eeecec;
+
+}

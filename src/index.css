@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+:root {
+  font-weight: 200;
+  font-style: normal;
+  line-height: 1.6;
+
+  /* 사용자 지정 변수 */
+  /* 사용법 : color : var(--anything) */
+
+  /* 브랜드 컬러 */
+  --accent: #7edbd1; /* 주 포인트 색상*/
+  --accent-dark: #2ec4b6; /* 주 포인트 색상 채도 높인 버전  (hover, active) 등*/
+  --accent-warm: #ffc45a;
+  --dark-bg: #1f2937;
+
+
+  /* 다크 모드 */
+  --dkModeBackground: #0e1f1d;
+  --dkModeWarm: #ffdd80;
+  --dkModeAccent: #7edbd1; /* 주 포인트 색상  */
+  --dkModeAccent-dark: #2ec4b6; /* 주 포인트 색상 채도 높인 버전  (hover, active) 등*/
+
+
+
+  /* 텍스트 컬러 */
+  --text: #333333; /* 기본 텍스트*/
+  --text-mid: #555555; /* 중간 강도 텍스트*/
+  --text-light: #777777; /* 연한 텍스트*/
+  --text-muted: #999999; /* 비활성 or 힌트 텍스트*/
+  --dkText : #f2fbfa;
+
+  /* 배경 & 구분선 */
+  --white: #ffffff; /*  흰색 배경 */
+  --bg-light: #f9f9f9; /*  연한 배경 (카드, 입력창) */
+  --border: #eeeeee; /*  구분선 */
+  --basePlus: #eaeaf2; 
+
+
+
+
+  /* 상태 컬러 */
+  --danger: #e74c3c /* 위험/삭제 */;
+
+  /* 폰트 크기 */
+  --fs-xs: 12px;
+  --fs-sm: 14px;
+  --fs-md: 16px;
+}
+body {
+  /* 배경색 (그라데이션을 지원하지 않는 브라우저를 위한 대비책) */
+  background-color: #eaeaea;
+
+  /* 중앙에서 시작하여 바깥쪽으로 퍼지는 옅은 그라데이션 적용 */
+  background-image: radial-gradient(
+    /* 그라데이션 형태와 위치 : 원형이 중앙에서 시작 */ circle at center,
+    /* 중앙 시작색 : 아주 옅은 흰색 */ rgba(255, 255, 255, 0.5) 0%,
+    /* 중간색 : 옅은 회색 */ rgba(234, 234, 234, 0.9) 50%,
+    /* 바깥쪽 색 : 기존 배경색과 동일하게 */ #eaeaea 100%
+  );
+  /* 그라데이션이 요소의 전체 배경 영역을 덮도록 설정 */
+  background-attachment: fixed;
+}
+
+main,
+footer {
+  max-width: 1200px;
+  width: calc(100% - 4rem);
+  margin: auto;
+}
+main {
+  /* fixed header 아래로 본문을 내려서 가려짐 방지 */
+  padding: 200px 0 33px;
+}
+footer {
+  padding: 33px 0;
+}
+main h2 {
+  font-size: 33px;
+  color: var(--dark-bg);
+  margin-bottom: 33px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

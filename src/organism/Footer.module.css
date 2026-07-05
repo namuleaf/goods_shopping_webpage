@@ -1,0 +1,123 @@
+/* Footer 전체 컨테이너 */
+.footer {
+  background-color: transparent;
+  border-top: 1px solid #eaeaea;
+  padding: 60px 0 30px;
+  color: var(--text-mid);
+  margin-top: auto;
+}
+/* 중앙 정렬 컨테이너 */
+.container {
+  max-width: 1200px;
+  width: calc(100% - 40px);
+  margin: 0 auto;
+  /* padding: 20px; */
+}
+/* 상단 영역 */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+/* 브랜드 정보 */
+.brand {
+  max-width: 400px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--accent);
+  margin-bottom: 15px;
+  letter-spacing: -0.5px;
+}
+
+.desc {
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  color: var(--text-light);
+}
+
+/* 고객센터 */
+.contact {
+  text-align: right;
+}
+
+.contact h4 {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 15px;
+  /* 영문 대문자 */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.phone {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.info {
+  font-size: var(--fs-sm);
+  color: var(--text-light);
+}
+
+/* 하단 영역 저작권 & 소셜 */
+.bottom {
+  border-top: 1px solid #f5f5f5;
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copyright {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.socials {
+  display: flex;
+  gap: 12px;
+}
+
+.socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--bg-light);
+  color: var(--text-mid);
+  font-size: var(--fs-sm);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.socials a:hover {
+  background-color: var(--accent);
+  color: var(--white);
+}
+
+/* 반응형 모바일기준 */
+@media (max-width: 768px) {
+  .top {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .contact {
+    text-align: left;
+  }
+
+  .bottom {
+    flex-direction: column-reverse;
+    gap: 20px;
+    text-align: center;
+  }
+}

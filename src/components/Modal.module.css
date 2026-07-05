@@ -1,0 +1,145 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+/* 모달 활성화 시 */
+.modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 모달 내용 컨테이너 */
+.container {
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  position: relative;
+  max-width: 500px;
+  width: calc(100% - 40px);
+  transform: translateY(-30px);
+  opacity: 0;
+  /* 통통 튀는 애니메이션 */
+  transition:
+    transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    opacity 0.3s ease;
+}
+
+.modal.active .container {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.btnClose {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.btnClose:hover {
+  color: var(--accent);
+}
+
+.modal img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.check {
+
+}
+.check i {
+
+  color: var(--accent-dark);
+}
+
+.check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 16px;
+}
+
+.check i {
+  color: var(--accent-dark);
+  font-size: 56px;
+}
+
+.modalTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 20px;
+  margin: 20px;
+  text-align: center;
+}
+
+.productSummary {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--text-mid);
+}
+
+.productTitle {
+  font-size: var(--fs-md);
+  margin-bottom: 5px;
+  color: var(--accent);
+}
+
+.btnGroup {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.btnGroup button {
+  flex: 1;
+  padding: 12px;
+  margin: 20px;
+  border-radius: 8px;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cancelBtn {
+  background-color: var(--white);
+  border: 1px solid #ddd;
+  color: var(--text-light);
+}
+
+.cancelBtn:hover {
+  background-color: var(--bg-light);
+  border-color: #ccc;
+}
+
+.confirmBtn {
+  background-color: var(--accent);
+  border: 1px solid var(--accent);
+  color: var(--white);
+}
+
+.confirmBtn:hover {
+  background-color: var(--accent-dark);
+  border-color: var(--accent-dark);
+}
