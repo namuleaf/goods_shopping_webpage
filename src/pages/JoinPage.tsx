@@ -13,7 +13,7 @@ export const JoinPage = () => {
             <p>가입 즉시 지급되는 웰컴 적립금</p>
           </div>
           <div className={css.benefitCard}>
-            <h3>마케팅 수신 동의</h3>
+            <h3>마케팅 수신 </h3>
             <span className={css.amount}>1,000원 적립</span>
             <p>이벤트 알림 동의 시 즉시 지급</p>
           </div>
@@ -27,15 +27,14 @@ export const JoinPage = () => {
           <p>
             구매금액의 1% 적립금 지급 시
             <br />
-            적립금 사용액 및 별도 할인 금액은
-            제외됩니다
-          <br/> 적립금 사용 기한은 지급일로부터 1년입니다.</p>
+            적립금 사용액 및 별도 할인 금액은 제외됩니다
+            <br /> 적립금 사용 기한은 지급일로부터 1년입니다.
+          </p>
         </div>
       </div>
       {/* 소셜 네트워크 로그인 */}
       <div className={css.snsBtnSection}>
         <div className={css.btn_kakao}>
-          <i className="bi bi-chat"></i>
           <p>카카오 로그인</p>
         </div>
         <div className={css.btn_naver}>
@@ -49,7 +48,7 @@ export const JoinPage = () => {
           모든 약관을 확인하고 전체 동의합니다.
         </label>
         <div className={css.checkItem}>
-          <label>(필수) 이용약관 동의</label>
+          <>(필수) 이용약관 동의</>
           <span className={css.btnViewDetail}>전문보기</span>
         </div>
         <div className={css.checkItem}>

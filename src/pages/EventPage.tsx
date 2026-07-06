@@ -41,7 +41,7 @@ export const EventPage = () => {
     {
       id: 4,
       category: "GIFT GUIDE",
-      title: "선물하기 좋은 굿즈 EST 5",
+      title: "선물하기 좋은 굿즈 BEST 5",
       date: "2024. 02. 14",
       desc: "행사 또는 기념일을 위한 굿즈를 찾으시나요? 만족도 높은 굿즈 추천 리스트를 확인하세요.",
       img: "/img/product04.jpg",

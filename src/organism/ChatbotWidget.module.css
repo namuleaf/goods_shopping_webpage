@@ -1,43 +1,132 @@
 .widgetContainer {
-    margin-top: 30px;
-    position: sticky;
-    background-color: white;
-    display: grid;
-    bottom:0;
-    border-radius: 30px;
-    right: 12px;
-    max-width: 324px;
+  position: fixed;
+  right: 120px;
+  bottom: 0px;
+  padding-bottom: 5px;
+  background-color: white;
+  display: grid;
+  border-radius: 20px;
+  max-width: 324px;
+  width: calc(100vw - 48px);
+  z-index: 9998;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
 }
 
-.widgetHeader{
-    background: var(--dark-bg);
-    color: white;
-    display: flex;
-    gap: 10px;
-    justify-content: space-between;
-    
-    padding:10px
+.widgetHeader {
+  background: var(--dark-bg);
+  color: white;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 14px;
 }
 
-.widgetTabSection{
-    background-color: var(--dark-bg);
-    color: var(--accent-warm);
-    font-weight: bold;
+.widgetHeader h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.widgetHeader p {
+  margin: 6px 0 0;
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6px;
+  border-radius: 999px;
+  background: var(--accent-warm);
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.closeButton {
+  border: none;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.widgetTabSection {
+  background-color: var(--dark-bg);
+  color: var(--accent-warm);
+  font-weight: bold;
+  padding: 0 14px 10px;
 }
 
 .messageRow {
-    padding:12px 30px;
-
+  padding: 12px 14px;
 }
 
 .chatbotBubble {
-     background-color: #eeecec;
-     border-radius: 20px;
-     padding: 15px 8px;
-        margin-bottom: 150px;
+  background-color: #eeecec;
+  border-radius: 20px;
+  padding: 15px 12px;
+  margin-top: 10px;
 }
 
-.moment{
-     background-color: #eeecec;
+.moment {
+  background-color: #eeecec;
+  padding: 10px 14px;
+  font-size: 13px;
+}
 
+.inputSection {
+  display: flex;
+  gap: 8px;
+  padding: 14px;
+}
+
+.inputSection input {
+  flex: 1;
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  padding: 10px 12px;
+}
+
+.inputSection button {
+  border: none;
+  border-radius: 14px;
+  width: 44px;
+  background: var(--accent);
+  color: white;
+}
+
+.agentBar{
+  display: flex;
+  align-items: center;
+  padding-left: 13px;
+  gap: 10px;
+  padding-bottom: 3px;
+}
+
+.agentBar p {
+  color: var(--dark-bg);
+  font-size: 10px;
+}
+
+.agentBar span{
+  background-color: var(--accent-warm);
+  padding: 4px 6px;
+  border-radius: 12px;
+  color: white;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+@media (max-width: 768px) {
+  .widgetContainer {
+    right: 12px;
+    left: 12px;
+    bottom: 170px;
+    max-width: none;
+    width: auto;
+  }
 }

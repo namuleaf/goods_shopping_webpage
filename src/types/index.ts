@@ -13,8 +13,8 @@ export interface Product {
   discount: number;
   liked?: boolean;
   bannerItemCat: string;
-  section : string;
-  phoneCategory?: "item" | "accessory";
+  section: string;
+  phoneCategory?: string;
   phoneCategoryLabel?: string;
 
 }

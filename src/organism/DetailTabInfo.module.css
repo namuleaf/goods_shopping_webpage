@@ -1,7 +1,8 @@
 .container {
-  min-width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 30px 20px;
+  padding: 30px 0 0;
 }
 
 .tabHeader {
@@ -9,6 +10,11 @@
   gap: 0;
   border-bottom: 1px solid var(--border);
   margin-bottom: 40px;
+  position: sticky;
+  top: 96px;
+  z-index: 15;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
 }
 
 .tabBtn {
@@ -46,6 +52,156 @@
   padding: 10px 0;
   min-height: 300px;
   color: var(--text-mid);
+  background: #fff;
+  border-radius: 20px;
+  padding: 15px;
+}
+
+.purchaseGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.purchaseCard {
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: linear-gradient(180deg, #fff, #faf7f1);
+  padding: 18px;
+}
+
+.purchaseCard h4 {
+  margin: 0 0 12px;
+  color: var(--text);
+  font-size: 18px;
+}
+
+.purchaseCard p {
+  margin: 0 0 8px;
+  line-height: 1.6;
+}
+
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.reviewHeader p {
+  margin: 6px 0 0;
+  color: var(--text-light);
+}
+
+.reviewWriteBtn {
+  border: 1px solid var(--border);
+  background: #fff;
+  border-radius: 999px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reviewWriteBtn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.reviewSummary {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.reviewScoreBox {
+  border-radius: 18px;
+  background: linear-gradient(180deg, #fff7ea, #fff);
+  border: 1px solid rgba(255, 153, 42, 0.18);
+  padding: 20px;
+  text-align: center;
+}
+
+.reviewScoreBox strong {
+  display: block;
+  font-size: 32px;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.reviewScoreBox span {
+  display: block;
+  margin-top: 8px;
+  color: var(--text-light);
+}
+
+.reviewTagBox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-content: flex-start;
+}
+
+.reviewTagBox span {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 10px 14px;
+  background: #fff;
+  color: var(--text-mid);
+}
+
+.reviewList {
+  display: grid;
+  gap: 14px;
+}
+
+.reviewCard {
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 18px;
+  background: #fff;
+}
+
+.reviewTop {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.reviewTop h4 {
+  margin: 6px 0 0;
+  font-size: 18px;
+  color: var(--text);
+}
+
+.reviewCategory {
+  margin: 0;
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.reviewMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--text-light);
+}
+
+.reviewStar {
+  margin-top: 12px;
+  color: #f5a524;
+  letter-spacing: 1px;
+}
+
+.reviewContent {
+  margin: 10px 0 0;
+  color: var(--text-mid);
+  line-height: 1.7;
 }
 
 .tabPane h3 {
@@ -73,10 +229,27 @@
 @media (max-width: 600px) {
   .tabHeader {
     justify-content: space-between;
+    overflow-x: auto;
+    top: 76px;
   }
   .tabBtn {
     flex: 1;
     padding: 15px 10px;
     font-size: var(--fs-sm);
+  }
+
+  .purchaseGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .reviewHeader,
+  .reviewTop,
+  .reviewSummary {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+
+  .reviewMeta {
+    align-items: flex-start;
   }
 }

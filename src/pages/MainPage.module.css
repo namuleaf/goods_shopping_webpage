@@ -36,26 +36,7 @@
   color: var(--text-mid);
 }
 
-.viewAllLink {
-  border: 1px solid rgba(254, 152, 18, 0.28);
-  background: #fff;
-  font-size: var(--fs-md);
-  color: var(--accent);
-  font-weight: 500;
-  transition:
-    color 0.3s,
-    transform 0.2s,
-    border-color 0.2s;
-  border-radius: 999px;
-  padding: 12px 18px;
-  cursor: pointer;
-}
 
-.viewAllLink:hover {
-  color: var(--accent-dark);
-  border-color: var(--accent);
-  transform: translateY(-1px);
-}
 
 .sectionTabs {
   display: flex;
@@ -63,6 +44,14 @@
   gap: 12px;
   max-width: 1200px;
   margin: 0 auto 20px;
+}
+
+.kindTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 1200px;
+  margin: 0 auto 24px;
 }
 
 .sectionChip {
@@ -89,6 +78,30 @@
   border-color: var(--accent-warm);
 }
 
+.kindChip {
+  border: 1px solid #ebe4d6;
+  background: #fff;
+  color: #6a5a38;
+  border-radius: 999px;
+  padding: 9px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.kindChip:hover {
+  transform: translateY(-1px);
+}
+
+.kindChipActive {
+  background: #2f3a4d;
+  color: #fff;
+  border-color: #2f3a4d;
+}
+
 /* 상품 목록 그리드 레이아웃 */
 .productGrid {
   display: grid;
@@ -109,13 +122,18 @@
 .carouselViewport {
   overflow: hidden;
   width: 100%;
+  --carousel-step: 320px;
 }
 
 .carouselTrack {
   display: flex;
   gap: 20px;
-  transition: transform 0.6s ease;
+  transition: transform 0.45s ease;
   will-change: transform;
+}
+
+.carouselTrackNoTransition {
+  transition: none;
 }
 
 .carouselItem {
@@ -140,6 +158,10 @@
 }
 
 @media (max-width: 900px) {
+  .carouselViewport {
+    --carousel-step: 280px;
+  }
+
   .sectionHeader {
     flex-direction: column;
     align-items: flex-start;
@@ -148,5 +170,9 @@
 
   .carouselItem {
     flex: 0 0 260px;
+  }
+
+  .kindTabs {
+    gap: 8px;
   }
 }

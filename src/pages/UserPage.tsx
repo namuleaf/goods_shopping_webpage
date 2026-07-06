@@ -415,8 +415,8 @@ export const UserPage = () => {
           <li>배송 일정 확인</li>
           <li>주문 정보</li>
           <li>결제 내역</li>
-          <li>회원 정보</li>
-          <li>고객센터</li>
+          <li>회원 정보 수정</li>
+          <li>리뷰 보기</li>
         </ul>
       </aside>
 
@@ -433,20 +433,22 @@ export const UserPage = () => {
               />
               <div>
                 <h2>Dearly 회원님, 반가워요!</h2>
-                <p>현재 등급: 혜성</p>
+                <p>등급: comet</p>
                 <p>주문과 배송 정보를 한눈에 확인해보세요.</p>
               </div>
             </div>
 
             <div className={css.gradeBasicBanner}>
               <div className={css.gradeCard}>
-                <h3>혜성 등급</h3>
+                <span>현재 등급</span>
+                <h3>comet 등급</h3>
                 <p>배송 일정 확인</p>
                 <p>주문 정보 확인</p>
                 <p>회원 전용 안내</p>
               </div>
               <div className={css.gradeCard}>
-                <h3>달 등급</h3>
+                <span>다음 등급 안내</span>
+                <h3>moon 등급</h3>
                 <p>구매 내역 요약</p>
                 <p>혜택 알림</p>
                 <p>이벤트 우선 소식</p>

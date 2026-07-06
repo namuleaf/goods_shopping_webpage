@@ -13,7 +13,7 @@ export const SimilarProducts = ({ relatedProducts }: SimilarProductsProps) => {
   }
   return (
     <div className={css.container}>
-      <h3 className={css.title}>유사 상품 추천</h3>
+      <h3 className={css.title}>함께 보면 좋은 상품</h3>
       <div className={css.productList}>
         {relatedProducts.slice(0, 4).map((product) => (
           <ProductCard key={product.id} data={product} />

@@ -52,6 +52,14 @@
   color: var(--accent-warm);
 }
 
+.topEtc button{
+  background-color: var(--accent-warm);
+  border-radius: 20px;
+  padding: 4px 8px;
+  color: white;
+  cursor: pointer;
+}
+
 .headerSecondWrap {
   display: flex;
   gap: 60px;

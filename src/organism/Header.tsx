@@ -98,7 +98,7 @@ const bannerCategories: MenuItem[] = [
 
 type BannerCategory = (typeof bannerCategories)[number];
 
-export const Header = () => {
+export const Header = ({ onToggleChat }: { onToggleChat: () => void }) => {
   const [isOn, setIsOn] = useState(false);
   const [visibleCategory, setVisibleCategory] = useState<MenuItem | null>(null);
   const location = useLocation();
@@ -125,7 +125,7 @@ export const Header = () => {
               <div>로그인/회원가입</div>
             </Link>
             </div>
-            <button>고객센터</button>
+            <button type="button" onClick={onToggleChat}>고객센터</button>
             </div>
           </div>
       </div>

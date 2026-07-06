@@ -25,6 +25,11 @@
   scale: 1.4rem;
 }
 
+.active {
+  background-color: var(--accent-warm);
+  color: #fff;
+}
+
 
 
 .goTop {
