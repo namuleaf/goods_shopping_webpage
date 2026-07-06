@@ -13,12 +13,74 @@ _limit : 최대 개수, _sort: 정렬 기준, category : 카테고리 필터
 import axios from "axios";
 import type { Product } from "@/types";
 
+const livingOtherProducts: Product[] = [
+  {
+    id: "living-other-keycap",
+    title: "키캡 데스크 세트",
+    img: "/img_LivingItem/pd_goods_keycap.png",
+    price: 12900,
+    category: "recommend",
+    discount: 0,
+    section: "living",
+    bannerItemCat: "living",
+    phoneCategory: "other",
+    phoneCategoryLabel: "기타",
+  },
+  {
+    id: "living-other-keycap-keyring",
+    title: "키캡 키링",
+    img: "/img_LivingItem/pd_living_goods_keycap_keyring.png",
+    price: 15900,
+    category: "new",
+    discount: 0,
+    section: "living",
+    bannerItemCat: "living",
+    phoneCategory: "other",
+    phoneCategoryLabel: "기타",
+  },
+  {
+    id: "living-other-passport-case",
+    title: "기타 리빙 파우치",
+    img: "/img_LivingItem/pd_goods_passport_case.png",
+    price: 18900,
+    category: "top",
+    discount: 10,
+    section: "living",
+    bannerItemCat: "living",
+    phoneCategory: "other",
+    phoneCategoryLabel: "기타",
+  },
+];
+
 // [GET] 전체 상품 목록 (쿼리 파라미터로 필터/정렬 가능)
-export const getProductsData = async (params = {}): Promise<Product[]> => {
+export const getProductsData = async (
+  params: Record<string, string> = {},
+): Promise<Product[]> => {
   try {
     const res = await axios.get<Product[]>("/api/products", { params });
     if (Array.isArray(res.data)) {
-      return res.data;
+      const shouldInjectLivingOther =
+        Object.keys(params).length === 0 ||
+        params.section === "living" ||
+        params.phoneCategory === "other";
+
+      if (!shouldInjectLivingOther) {
+        return res.data;
+      }
+
+      const hasLivingOther = res.data.some(
+        (product) => product.section === "living" && product.phoneCategory === "other",
+      );
+
+      if (hasLivingOther) {
+        return res.data;
+      }
+
+      const livingOnly = livingOtherProducts.filter((product) =>
+        params.section ? product.section === params.section : true,
+      );
+
+      return [...res.data, ...livingOnly];
     }
     return res.data;
   } catch (err) {

@@ -8,45 +8,51 @@ import css from "./ShopPage.module.css";
 
 const sectionOptions = [
   { id: "all", label: "전체 상품" },
-  { id: "phone", label: "폰 액세서리" },
+  { id: "phone", label: "폰 악세사리" },
   { id: "sticker", label: "스티커" },
   { id: "photo", label: "포토" },
   { id: "acrylic", label: "아크릴" },
   { id: "living", label: "리빙" },
-  { id: "calendar", label: "캘린더" },
+  { id: "calendar", label: "달력" },
 ];
 
 const kindOptions: Record<string, Array<{ id: string; label: string }>> = {
   all: [{ id: "all", label: "전체" }],
   phone: [
     { id: "all", label: "전체" },
-    { id: "item", label: "폰케이스 아이템" },
-    { id: "accessory", label: "폰 액세서리" },
+    { id: "item", label: "폰 아이템" },
+    { id: "accessory", label: "폰 악세사리" },
+    { id: "other", label: "기타" },
   ],
   sticker: [
     { id: "all", label: "전체" },
     { id: "basic", label: "기본" },
     { id: "custom", label: "커스텀" },
+    { id: "other", label: "기타" },
   ],
   photo: [
     { id: "all", label: "전체" },
     { id: "card", label: "포토 카드" },
-    { id: "poster", label: "포스터" },
+    { id: "poster", label: "포토 포스터" },
+    { id: "other", label: "기타" },
   ],
   acrylic: [
     { id: "all", label: "전체" },
-    { id: "stand", label: "스탠드" },
-    { id: "keyring", label: "키링" },
+    { id: "stand", label: "아크릴 스탠드" },
+    { id: "keyring", label: "아크릴 키링" },
+    { id: "other", label: "기타" },
   ],
   living: [
     { id: "all", label: "전체" },
-    { id: "desk", label: "데스크" },
-    { id: "home", label: "홈" },
+    { id: "desk", label: "리빙 데스크" },
+    { id: "home", label: "리빙 소품" },
+    { id: "other", label: "기타" },
   ],
   calendar: [
     { id: "all", label: "전체" },
-    { id: "table", label: "탁상" },
-    { id: "wall", label: "벽걸이" },
+    { id: "table", label: "캘린더 테이블" },
+    { id: "wall", label: "캘린더 벽걸이" },
+    { id: "other", label: "기타" },
   ],
 };
 
@@ -233,9 +239,7 @@ export const ShopPage = () => {
                   key={kind.id}
                   type="button"
                   className={
-                    isActive
-                      ? `${css.kindChip} ${css.kindChipActive}`
-                      : css.kindChip
+                    isActive ? `${css.kindChip} ${css.kindChipActive}` : css.kindChip
                   }
                   onClick={() => handleKindFilter(kind.id)}
                 >

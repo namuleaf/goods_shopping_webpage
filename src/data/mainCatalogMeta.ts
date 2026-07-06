@@ -12,36 +12,40 @@ export type MainKindId =
   | "desk"
   | "home"
   | "table"
-  | "wall";
+  | "wall"
+  | "other";
 
 export type SectionKind = {
   id: MainKindId | "all";
   label: string;
 };
 
-export const mainSections: Array<
-  { id: "all"; label: string; description: string } |
-  { id: MainSectionId; label: string; description: string }
-> = [
+type SectionMeta = {
+  id: "all" | MainSectionId;
+  label: string;
+  description: string;
+};
+
+export const mainSections: SectionMeta[] = [
   {
     id: "all",
     label: "전체 상품",
-    description: "모든 카테고리 상품을 한 번에 볼 수 있어요",
+    description: "모든 카테고리 상품을 한 번에 볼 수 있어요.",
   },
   {
     id: "phone",
-    label: "폰 액세서리",
-    description: "핸드폰과 함께 쓰기 좋은 데일리 아이템",
+    label: "폰 악세사리",
+    description: "폰 케이스와 함께 쓰는 실용적인 아이템",
   },
   {
     id: "sticker",
     label: "스티커",
-    description: "꾸미는 재미가 있는 스티커 모음",
+    description: "꾸미기, 다이어리, 캐릭터 스티커 모음",
   },
   {
     id: "photo",
     label: "포토",
-    description: "사진 감성을 살려주는 인화 상품",
+    description: "사진 감성을 살려주는 포토 상품",
   },
   {
     id: "acrylic",
@@ -51,61 +55,74 @@ export const mainSections: Array<
   {
     id: "living",
     label: "리빙",
-    description: "실용성과 감성을 함께 챙기는 생활 소품",
+    description: "실용성과 감성을 함께 담은 생활 굿즈",
   },
   {
     id: "calendar",
-    label: "캘린더",
-    description: "계절마다 바꾸기 좋은 데스크 캘린더",
+    label: "달력",
+    description: "계절마다 보기 좋은 캘린더 굿즈",
   },
 ];
 
-export const sectionKindMap: Record<
-  "all" | MainSectionId,
-  SectionKind[]
-> = {
+export const sectionKindMap: Record<"all" | MainSectionId, SectionKind[]> = {
   all: [{ id: "all", label: "전체" }],
   phone: [
     { id: "all", label: "전체" },
-    { id: "item", label: "폰케이스 아이템" },
-    { id: "accessory", label: "폰케이스 악세사리" },
+    { id: "item", label: "폰 아이템" },
+    { id: "accessory", label: "폰 악세사리" },
+    { id: "other", label: "기타" },
   ],
   sticker: [
     { id: "all", label: "전체" },
-    { id: "basic", label: "기본형" },
+    { id: "basic", label: "기본" },
     { id: "custom", label: "커스텀" },
+    { id: "other", label: "기타" },
   ],
   photo: [
     { id: "all", label: "전체" },
     { id: "card", label: "포토 카드" },
     { id: "poster", label: "포토 포스터" },
+    { id: "other", label: "기타" },
   ],
   acrylic: [
     { id: "all", label: "전체" },
     { id: "stand", label: "아크릴 스탠드" },
     { id: "keyring", label: "아크릴 키링" },
+    { id: "other", label: "기타" },
   ],
   living: [
     { id: "all", label: "전체" },
     { id: "desk", label: "리빙 데스크" },
     { id: "home", label: "리빙 소품" },
+    { id: "other", label: "기타" },
   ],
   calendar: [
     { id: "all", label: "전체" },
     { id: "table", label: "캘린더 테이블" },
     { id: "wall", label: "캘린더 벽걸이" },
+    { id: "other", label: "기타" },
   ],
 };
 
-export const sectionKindSequence: Record<
-  MainSectionId,
-  MainKindId[]
-> = {
-  phone: ["accessory", "accessory", "item", "accessory"],
-  sticker: ["basic", "custom", "custom", "basic"],
-  photo: ["card", "card", "poster", "poster"],
-  acrylic: ["stand", "stand", "stand", "keyring"],
-  living: ["desk", "desk", "home", "home"],
-  calendar: ["table", "wall", "table", "wall"],
+const allowedKindMap: Record<MainSectionId, Exclude<MainKindId, "other">[]> = {
+  phone: ["item", "accessory"],
+  sticker: ["basic", "custom"],
+  photo: ["card", "poster"],
+  acrylic: ["stand", "keyring"],
+  living: ["desk", "home"],
+  calendar: ["table", "wall"],
 };
 
+export const resolveSectionKind = (
+  section: MainSectionId,
+  kind?: string | null,
+): MainKindId => {
+  if (!kind || kind === "all") {
+    return "other";
+  }
+
+  const allowedKinds = allowedKindMap[section];
+  return allowedKinds.includes(kind as Exclude<MainKindId, "other">)
+    ? (kind as Exclude<MainKindId, "other">)
+    : "other";
+};

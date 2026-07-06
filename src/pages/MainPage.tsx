@@ -4,11 +4,9 @@ import css from "./MainPage.module.css";
 import { HeroSlider } from "@/organism/HeroSlider";
 import { ProductCard } from "@/components/ProductCard";
 import { getProductsData } from "@/api/productsApi";
-import {
-  mainSections,
-  sectionKindMap,
-} from "@/data/mainCatalogMeta";
+import { mainSections, resolveSectionKind, sectionKindMap } from "@/data/mainCatalogMeta";
 import type { Product } from "@/types";
+import type { MainSectionId } from "@/data/mainCatalog";
 
 type CatalogProduct = Product & {
   kind: string;
@@ -48,11 +46,14 @@ export const MainPage = () => {
       setCatalogProducts(
         products.map((product) => {
           const kind =
-            product.phoneCategory ?? (product.section === "phone" ? "item" : "all");
+            product.section === "phone"
+              ? resolveSectionKind("phone", product.phoneCategory)
+              : resolveSectionKind(product.section as MainSectionId, product.phoneCategory);
+
           const kindLabel =
             sectionKindMap[product.section as keyof typeof sectionKindMap]?.find(
               (item) => item.id === kind,
-            )?.label ?? product.phoneCategoryLabel ?? "전체";
+            )?.label ?? product.phoneCategoryLabel ?? "기타";
 
           return {
             ...product,
@@ -71,11 +72,9 @@ export const MainPage = () => {
   }, []);
 
   const currentSection =
-    mainSections.find((section) => section.id === selectedSection) ??
-    mainSections[0];
+    mainSections.find((section) => section.id === selectedSection) ?? mainSections[0];
   const currentKindList =
-    sectionKindMap[selectedSection as keyof typeof sectionKindMap] ??
-    sectionKindMap.all;
+    sectionKindMap[selectedSection as keyof typeof sectionKindMap] ?? sectionKindMap.all;
 
   const currentProducts = useMemo(() => {
     const sectionFiltered =
@@ -91,14 +90,11 @@ export const MainPage = () => {
   }, [catalogProducts, selectedSection, selectedKind]);
 
   const visibleProducts =
-    selectedSection === "all" || showAll
-      ? currentProducts
-      : currentProducts.slice(0, 4);
+    selectedSection === "all" || showAll ? currentProducts : currentProducts.slice(0, 4);
 
   useEffect(() => {
     const nextSection =
-      sectionParam &&
-      mainSections.some((section) => section.id === sectionParam)
+      sectionParam && mainSections.some((section) => section.id === sectionParam)
         ? sectionParam
         : "all";
 
@@ -109,8 +105,7 @@ export const MainPage = () => {
     const nextKind =
       selectedSection === "all"
         ? "all"
-        : kindParam &&
-            currentKindList.some((kind) => kind.id === kindParam)
+        : kindParam && currentKindList.some((kind) => kind.id === kindParam)
           ? kindParam
           : "all";
 
