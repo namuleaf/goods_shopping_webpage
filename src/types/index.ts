@@ -22,7 +22,16 @@ export interface Product {
 // 장바구니 아이템 = 상품 + 수량
 // extends 로 Product 의 모든 필드를 상속받고 count 필드를 추가
 export interface CartItem extends Product {
+  productId: string;
   count: number;
+  selectedOption?: string;
+  selectedOptionLabel?: string;
+  selectedSize?: string;
+  selectedSizeLabel?: string;
+  orderDate?: string;
+  preferredDeliveryDate?: string;
+  deliveryStartDate?: string;
+  deliveryEndDate?: string;
 }
 
 // 배너 한 개의 구조

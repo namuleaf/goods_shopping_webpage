@@ -259,7 +259,7 @@ export const mainCatalogProducts: Product[] = [
   {
     id: "calendar-1",
     title: "테이블 캘린더",
-    img: "/img_CalandarItem/pd_clnd_table.png",
+    img: "/img_CalendarItem/pd_clnd_table.png",
     price: 16900,
     category: "new",
     discount: 5,
@@ -269,7 +269,7 @@ export const mainCatalogProducts: Product[] = [
   {
     id: "calendar-2",
     title: "빅 월 캘린더",
-    img: "/img_CalandarItem/pd_clnd_bigwall_large.png",
+    img: "/img_CalendarItem/pd_clnd_bigwall_large.png",
     price: 23900,
     category: "top",
     discount: 7,
@@ -279,7 +279,7 @@ export const mainCatalogProducts: Product[] = [
   {
     id: "calendar-3",
     title: "미니 캘린더",
-    img: "/img_CalandarItem/pd_clnd_mini.png",
+    img: "/img_CalendarItem/pd_clnd_mini.png",
     price: 9900,
     category: "recommend",
     discount: 3,
@@ -289,7 +289,7 @@ export const mainCatalogProducts: Product[] = [
   {
     id: "calendar-4",
     title: "우드와이드 캘린더",
-    img: "/img_CalandarItem/pd_clnd_woodwide.png",
+    img: "/img_CalendarItem/pd_clnd_woodwide.png",
     price: 21900,
     category: "discount",
     discount: 9,

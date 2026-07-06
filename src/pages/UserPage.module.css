@@ -30,6 +30,38 @@
   color: #444;
 }
 
+.sideAction {
+  width: 100%;
+  border: 1px solid #eadfc9;
+  background: #fff;
+  border-radius: 16px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  color: #5c4a24;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.sideAction:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent-warm);
+  background: #fff8ed;
+  color: var(--accent-dark);
+}
+
+.sideAction:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 .content {
   flex: 1;
 }
@@ -44,6 +76,11 @@
   gap: 20px;
 }
 
+.gradeBenefitWrap {
+  position: relative;
+  display: grid;
+}
+
 .basicProfile {
   background: linear-gradient(135deg, #fff9ef, #ffffff);
   border-radius: 28px;
@@ -52,6 +89,7 @@
   display: flex;
   gap: 20px;
   align-items: center;
+  margin-bottom: 24px;
 }
 
 .profileImage {
@@ -73,20 +111,7 @@
   color: #555;
 }
 
-.deliveryCard {
-  background: #ffffff;
-  border-radius: 28px;
-  padding: 28px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
-  display: grid;
-  gap: 14px;
-  width: 100%;
-  min-width: 720px;
-}
 
-.deliveryCard h2 {
-  margin: 0;
-}
 
 .description {
   margin: 0;
@@ -106,6 +131,12 @@
   font-size: 16px;
 }
 
+.dateInput:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(255, 153, 42, 0.12);
+  outline: none;
+}
+
 .resultBox {
   background: #fff8ed;
   border: 1px solid #f2d7aa;
@@ -123,9 +154,56 @@
   color: #7a5a22;
 }
 
-.gradeBasicBanner {
+.recentDeliveryList {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.recentDeliveryItem {
+  border-radius: 18px;
+  border: 1px solid #f2efe8;
+  background: #fff;
+  padding: 18px;
+  display: grid;
+  gap: 12px;
+}
+
+.recentDeliveryItem h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+
+.recentDeliveryItem p {
+  margin: 0;
+  color: #666;
+}
+
+.recentDeliveryMeta {
+  display: grid;
+  gap: 6px;
+  color: #444;
+}
+
+.deliveryCard {
+  margin-top: 24px;
+  background: #fff;
+  border-radius: 28px;
+  padding: 28px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f2efe8;
+  display: grid;
+  gap: 18px;
+}
+
+.deliveryCard h2 {
+  margin: 0;
+  font-size: 24px;
+  color: var(--dark-bg);
+}
+
+.gradeBasicBanner {
+  width: 100%;
+  display: grid;
   gap: 20px;
 }
 
@@ -269,10 +347,43 @@
 }
 
 .benefitSection {
+  position: absolute;
+  top: calc(100% + 16px);
+  left: 0;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-12px) scale(0.98);
   background: #fffdf9;
   border-radius: 28px;
   padding: 28px;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f2efe8;
+  z-index: 10;
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease,
+    visibility 0.22s ease;
+}
+
+.benefitHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.benefitHint {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: #1f2a37;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .benefitSection h3 {
@@ -291,6 +402,49 @@
   padding: 20px;
   border: 1px solid #f2efe8;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  text-align: left;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.benefitCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.07);
+  border-color: var(--accent-warm);
+}
+
+.benefitCard:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.benefitActionBtn {
+  margin-top: 14px;
+  width: 100%;
+  border: none;
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: #1f2a37;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.benefitActionBtn:hover {
+  transform: translateY(-1px);
+  background: var(--accent);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
+}
+
+.benefitActionBtn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 .benefitCard span {
@@ -332,6 +486,70 @@
   line-height: 1.5;
 }
 
+.benefitModalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 18, 18, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 1000;
+}
+
+.benefitModal {
+  position: relative;
+  width: min(100%, 520px);
+  background: #fff;
+  border-radius: 28px;
+  padding: 28px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.22);
+}
+
+.benefitModalClose {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: #f5f0e8;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.benefitModalBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: var(--accent-warm);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.benefitModal h3 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+.benefitModalSubtitle {
+  margin: 0 0 16px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.gradeBenefitWrap:hover .benefitSection,
+.gradeBenefitWrap:focus-within .benefitSection {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+
 @media (max-width: 900px) {
   .container {
     flex-direction: column;
@@ -354,5 +572,9 @@
 
   .catalogGrid {
     grid-template-columns: 1fr;
+  }
+
+  .benefitModal {
+    padding: 22px;
   }
 }

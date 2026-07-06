@@ -1,5 +1,6 @@
 import React from "react";
 import css from "./EventPage.module.css";
+import { FallbackImage } from "@/components/FallbackImage";
 
 // 블로그 포스트 타입 정의
 interface EventPost {
@@ -61,7 +62,7 @@ export const EventPage = () => {
         {eventPosts.map((post) => (
           <article key={post.id} className={css.card}>
             <div className={css.imgWrap}>
-              <img src={post.img} alt={post.title}></img>
+              <FallbackImage src={post.img} alt={post.title} />
             </div>
             <div className={css.textWrap}>
               <span className={css.category}>{post.category}</span>

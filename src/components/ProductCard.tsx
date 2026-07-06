@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import type { Product } from "@/types";
 import css from "./ProductCard.module.css";
 import { formatCurrency } from "@/utils/features";
+import { FallbackImage } from "@/components/FallbackImage";
 
 interface ProductCardProps {
   data: Product;
@@ -42,12 +43,7 @@ export const ProductCard = ({
           >
             <i className={`bi ${liked ? "bi-heart-fill" : "bi-heart"}`}></i>
           </button>
-          <img
-            src={data.img}
-            alt={data.title}
-            className={css.productImage}
-            loading="lazy"
-          ></img>
+          <FallbackImage src={data.img} alt={data.title} className={css.productImage} />
         </div>
         <h4 className={css.title}>{data.title}</h4>
         <p className={css.price}>{formatCurrency(data.price)}</p>

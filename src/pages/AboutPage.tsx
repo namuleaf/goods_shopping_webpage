@@ -16,6 +16,7 @@ false 가 되면 실제 콘텐츠로 교체합니다
 
 import React, { useEffect, useState } from "react";
 import css from "./AboutPage.module.css";
+import { FallbackImage } from "@/components/FallbackImage";
 
 // delay 함수 : ms 밀리초 동안 기다리는 Promise 를 반환
 // 학습용임
@@ -77,7 +78,7 @@ export const AboutPage = () => {
           //   로딩 완료 : 실제 콘텐츠
           <>
             <div className={css.imgWrap}>
-              <img src="/img_PhoneItem/imgWrap1.jpg" alt="Brand Story"></img>
+              <FallbackImage src="/img_PhoneItem/imgWrap1.jpg" alt="Brand Story" />
             </div>
             <div className={css.textWrap}>
               <h3>More Special Goods</h3>

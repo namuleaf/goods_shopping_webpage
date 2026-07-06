@@ -1847,8 +1847,7 @@
       "section": "calendar",
       "phoneCategory": "wall",
       "phoneCategoryLabel": "캘린더 벽걸이"
-    }
-    ,
+    },
     {
       "id": "155",
       "liked": false,
@@ -2201,64 +2200,72 @@
   ],
   "cart": [
     {
+      "id": "xsS6_tj1UC4",
       "productId": "2",
       "title": "블루투스 이어폰 케이스 02",
       "img": "/img_PhoneItem/2f7dccbfeb45a.jpg",
       "price": 147445,
       "discount": 46,
-      "category": "new",
+      "category": "discount",
       "count": 1,
-      "id": "PPQgKwgnKhI"
+      "selectedOption": "아이보리",
+      "selectedOptionLabel": "색상: 아이보리",
+      "orderDate": "2026-07-06",
+      "preferredDeliveryDate": "2026-07-21",
+      "deliveryStartDate": "2026-07-08",
+      "deliveryEndDate": "2026-07-10"
     },
     {
-      "productId": "7",
-      "title": "DIY 스마트톡 키트 07",
-      "img": "/img_PhoneItem/pd_gift_diy_tok.png",
-      "price": 409972,
-      "discount": 20,
+      "id": "xHfGhZoAJMY",
+      "productId": "134",
+      "title": "아크릴 스탠드",
+      "img": "/img_AcrylicItem/pd_acrylic_stand_v2.png",
+      "price": 21900,
+      "discount": 9,
       "category": "top",
       "count": 1,
-      "id": "UkJ_dr2-6Sk"
+      "selectedOption": "스모크",
+      "selectedOptionLabel": "색상: 스모크",
+      "orderDate": "2026-07-06",
+      "preferredDeliveryDate": "2026-08-12",
+      "deliveryStartDate": "2026-07-08",
+      "deliveryEndDate": "2026-07-10"
     },
     {
-      "productId": "34",
-      "title": "맥세이프 보조배터리 34",
-      "img": "/img_PhoneItem/pd_magsafe_powerbank.png",
-      "price": 22822,
-      "discount": 0,
-      "category": "top",
-      "count": 1,
-      "id": "otq1bl7eMnQ"
-    },
-    {
-      "productId": "1",
-      "title": "무선 이어폰 굿즈 세트 01",
-      "img": "/img_PhoneItem/2a8a0a95cb439.jpg",
-      "price": 205805,
-      "discount": 17,
-      "category": "top",
-      "count": 1,
-      "id": "_sMoXWUMrMg"
-    },
-    {
-      "productId": "6",
-      "title": "버즈 기프트 케이스 06",
-      "img": "/img_PhoneItem/pd_gift_buds2.jpg",
-      "price": 314221,
-      "discount": 33,
-      "category": "new",
-      "count": 1,
-      "id": "kLCZpYtSIt8"
-    },
-    {
-      "productId": "135",
-      "title": "모니터 아크릴 스탠드",
-      "img": "/img_AcrylicItem/pd_monitor_acrylic_stand.png",
-      "price": 29800,
+      "id": "wEpi-LJhToE",
+      "productId": "142",
+      "title": "빅 월 캘린더",
+      "img": "/img_CalendarItem/pd_clnd_bigwall_large.png",
+      "price": 23900,
       "discount": 7,
-      "category": "recommend",
+      "category": "top",
       "count": 1,
-      "id": "PHYAoMz5o1I"
+      "selectedOption": "화이트",
+      "selectedOptionLabel": "색상: 화이트",
+      "selectedSize": "Desktop",
+      "selectedSizeLabel": "사이즈: Desktop",
+      "orderDate": "2026-07-06",
+      "preferredDeliveryDate": "2026-07-15",
+      "deliveryStartDate": "2026-07-08",
+      "deliveryEndDate": "2026-07-10"
+    },
+    {
+      "id": "bm-nMtj5tT8",
+      "productId": "142",
+      "title": "빅 월 캘린더",
+      "img": "/img_CalendarItem/pd_clnd_bigwall_large.png",
+      "price": 23900,
+      "discount": 7,
+      "category": "top",
+      "count": 1,
+      "selectedOption": "올리브",
+      "selectedOptionLabel": "색상: 올리브",
+      "selectedSize": "Large",
+      "selectedSizeLabel": "사이즈: Large",
+      "orderDate": "2026-07-06",
+      "preferredDeliveryDate": "2026-07-09",
+      "deliveryStartDate": "2026-07-08",
+      "deliveryEndDate": "2026-07-10"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

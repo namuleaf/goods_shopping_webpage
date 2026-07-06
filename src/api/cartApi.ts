@@ -32,7 +32,14 @@ export const addToCart = async (
 ): Promise<CartItem | undefined> => {
   try {
     const cart = await getCartData();
-    const existingItem = cart.find((item) => item.id === cartItem.id);
+    const existingItem = cart.find(
+      (item) =>
+        item.productId === cartItem.productId &&
+        (item.selectedOption ?? "") === (cartItem.selectedOption ?? "") &&
+        (item.selectedSize ?? "") === (cartItem.selectedSize ?? "") &&
+        (item.preferredDeliveryDate ?? "") ===
+          (cartItem.preferredDeliveryDate ?? ""),
+    );
 
     if (existingItem) {
       // 이미 있으면 수량만 증가 (PUT : 기존 데이터 수정)

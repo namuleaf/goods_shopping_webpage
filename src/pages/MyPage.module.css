@@ -1,127 +1,161 @@
 .container {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 60px 20px;
-  margin-top: 30px;
-}
-.header {
-  margin-bottom: 40px;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 20px;
+  padding: 140px 20px 80px;
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 28px;
 }
 
-.title {
-  font-size: 24px;
-  font-weight: 600;
-  color: var(--text);
+.sidebar {
+  position: sticky;
+  top: 120px;
+  align-self: start;
+  background: linear-gradient(180deg, #fffdf8, #ffffff);
+  border-radius: 28px;
+  border: 1px solid #f2efe8;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
+  padding: 24px;
 }
 
-/* 폼 섹션 */
-.formSection {
-  background: var(--bg-light);
-  border-radius: 12px;
-  padding: 30px;
-  margin-bottom: 40px;
+.sidebarHeader p {
+  margin: 0;
+  color: var(--accent);
+  font-weight: 700;
 }
 
-.formSection h3 {
-  font-size: var(--fs-md);
-  font-weight: 600;
+.sidebarHeader h2 {
+  margin: 6px 0 0;
+  font-size: 28px;
+}
+
+.menu {
+  display: grid;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.menuBtn {
+  text-align: left;
+  border: 1px solid #eadfc9;
+  background: #fff;
+  border-radius: 20px;
+  padding: 16px;
+  cursor: pointer;
+  display: grid;
+  gap: 6px;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.menuBtn strong {
+  font-size: 16px;
+}
+
+.menuBtn span {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.menuBtn:hover,
+.menuBtnActive {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+  box-shadow: 0 12px 24px rgba(255, 153, 42, 0.12);
+  background: #fff8ed;
+}
+
+.content {
+  display: grid;
+  gap: 20px;
+}
+
+.panelCard {
+  background: #fff;
+  border-radius: 28px;
+  border: 1px solid #f2efe8;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
+  padding: 28px;
+}
+
+.panelHeader {
+  display: grid;
+  gap: 6px;
   margin-bottom: 20px;
-  color: var(--text);
+}
+
+.panelHeader h3 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.panelHeader p {
+  margin: 0;
+  color: #666;
 }
 
 .form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  display: grid;
+  gap: 16px;
 }
 
 .row {
-  display: flex;
-  gap: 20px;
-}
-.row .inputGroup {
-  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
 }
 
 .inputGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.inputGroup label {
-  font-size: var(--fs-sm);
-  font-weight: 500;
-  color: var(--text-mid);
+  display: grid;
+  gap: 8px;
+  color: #555;
+  font-weight: 600;
 }
 
 .inputGroup input,
 .inputGroup select {
-  padding: 10px 14px;
-  border: 1px solid var(--border);
-  font-size: var(--fs-sm);
-  border-radius: 6px;
-  background: var(--white);
-  outline: none;
-  transition: border-color 0.2s;
-  color: var(--text);
-}
-
-.inputGroup input:focus,
-.inputGroup select:focus {
-  border-color: var(--accent);
+  border: 1px solid #e7ddd0;
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-size: 15px;
+  background: #fff;
 }
 
 .submitBtn {
-  padding: 12px 24px;
-  width: 100%;
-  background-color: var(--accent);
-  color: var(--white);
   border: none;
-  border-radius: 6px;
-  font-size: var(--fs-sm);
-  font-weight: 600;
+  border-radius: 16px;
+  padding: 14px 18px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
   cursor: pointer;
-  transition: background-color 0.2s;
-  align-self: flex-start;
 }
 
 .submitBtn:hover {
-  background-color: var(--accent-dark);
-}
-
-.divider {
-  height: 1px;
-  background-color: var(--border);
-  margin-bottom: 30px;
-}
-
-.listTitle {
-  font-size: var(--fs-md);
-  font-weight: 600;
-  margin-bottom: 20px;
-  color: var(--text);
+  background: var(--accent-dark);
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
 }
 
 .card {
-  border: 1px solid var(--border);
-  border-radius: 10px;
+  border: 1px solid #f2efe8;
+  border-radius: 20px;
   overflow: hidden;
-  background: var(--white);
+  background: #fff;
 }
 
 .imgWrap {
   position: relative;
-  aspect-ratio: 1;
-  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(180deg, #faf7f1, #fff);
 }
 
 .imgWrap img {
@@ -132,59 +166,120 @@
 
 .badge {
   position: absolute;
-  top: 8px;
-  left: 8px;
-  background: var(--accent);
-  color: var(--white);
-  font-size: var(--fs-xs);
-  padding: 2px 8px;
-  border-radius: 20px;
+  top: 12px;
+  left: 12px;
+  background: rgba(31, 42, 55, 0.9);
+  color: #fff;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .info {
-  padding: 12px;
+  padding: 16px;
+  display: grid;
+  gap: 8px;
 }
 
 .productTitle {
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 4px;
-  white-space: noWrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  margin: 0;
+  font-size: 18px;
+}
+
+.meta {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
 }
 
 .price {
-  font-size: var(--fs-sm);
-  color: var(--text-mid);
-  margin-bottom: 10px;
+  margin: 0;
+  color: var(--accent);
+  font-weight: 700;
 }
 
 .deleteBtn {
-  width: 100%;
-  padding: 6px;
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  background: var(--white);
-  font-size: var(--fs-xs);
-  color: var(text-light);
+  border: 1px solid #e7ddd0;
+  border-radius: 12px;
+  background: #fff;
+  padding: 10px 12px;
   cursor: pointer;
-  transition: 0.3s;
+  font-weight: 700;
 }
 
 .deleteBtn:hover {
   border-color: var(--danger);
   color: var(--danger);
-  background-color: #fff5f5;
 }
 
-@media (max-width: 900px) {
-  .row {
-    flex-direction: column;
-    gap: 20px;
+.summaryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.summaryCard {
+  background: linear-gradient(180deg, #fffaf3, #fff);
+  border: 1px solid #f2e5cf;
+  border-radius: 20px;
+  padding: 18px;
+  display: grid;
+  gap: 8px;
+}
+
+.summaryCard span {
+  color: #666;
+  font-size: 14px;
+}
+
+.summaryCard strong {
+  font-size: 28px;
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+}
+
+.table th,
+.table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #f1eadf;
+  text-align: left;
+  font-size: 14px;
+}
+
+.table th {
+  color: #555;
+  font-weight: 700;
+  background: #fffdf8;
+}
+
+@media (max-width: 1100px) {
+  .container {
+    grid-template-columns: 1fr;
   }
+
+  .sidebar {
+    position: static;
+  }
+
   .grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .row,
+  .summaryGrid,
+  .grid {
+    grid-template-columns: 1fr;
   }
 }

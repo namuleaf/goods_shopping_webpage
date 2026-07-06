@@ -21,10 +21,15 @@ import { MainPage } from "./pages/MainPage";
 import { AboutPage } from "./pages/AboutPage";
 import { EventPage } from "./pages/EventPage";
 import { ShopPage } from "./pages/ShopPage";
-import { detailPageLoader, shopPageLoader } from "./loader/productsLoader";
+import {
+  detailPageLoader,
+  designPageLoader,
+  shopPageLoader,
+} from "./loader/productsLoader";
 import { CartPage } from "./pages/CartPage";
 import { cartPageLoader } from "./loader/cartLoader";
 import { DetailPage } from "./pages/DetailPage";
+import { DesignPage } from "./pages/DesignPage";
 import { MyPage } from "./pages/MyPage";
 import { HomePage } from "./pages/HomePage";
 import { JoinPage } from "./pages/JoinPage";
@@ -48,6 +53,11 @@ const router = createBrowserRouter([
         path: "/detail/:productId",
         element: <DetailPage />,
         loader: detailPageLoader,
+      },
+      {
+        path: "/design/:productId",
+        element: <DesignPage />,
+        loader: designPageLoader,
       },
 
       // 카테고리아이템 쇼핑목록(일단 폰만)

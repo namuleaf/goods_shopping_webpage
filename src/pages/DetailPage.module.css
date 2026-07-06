@@ -5,6 +5,7 @@
 }
 
 .heroSection {
+  margin-top: 200px;
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
   gap: 32px;
@@ -247,6 +248,28 @@
   border-color: #1f2a37;
 }
 
+.deliveryDateInput {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-size: 16px;
+  background: #fff;
+}
+
+.deliveryDateInput:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(255, 153, 42, 0.12);
+}
+
+.deliveryDateGuide {
+  margin: 10px 0 0;
+  color: var(--text-light);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
 .quickBuy {
   display: flex;
   gap: 14px;
@@ -279,7 +302,8 @@
 }
 
 .addBtn,
-.buyBtn {
+.buyBtn,
+.designBtn {
   border: none;
   border-radius: 14px;
   cursor: pointer;
@@ -303,8 +327,16 @@
   color: #fff;
 }
 
+.designBtn {
+  width: 100%;
+  padding: 16px 18px;
+  background: #1f2a37;
+  color: #fff;
+}
+
 .addBtn:hover,
-.buyBtn:hover {
+.buyBtn:hover,
+.designBtn:hover {
   transform: translateY(-1px);
   box-shadow: 0 14px 24px rgba(0, 0, 0, 0.1);
 }

@@ -115,3 +115,28 @@ export const detailPageLoader = async ({
     });
   }
 };
+
+export const designPageLoader = async ({
+  params,
+}: LoaderFunctionArgs): Promise<DetailLoaderData> => {
+  try {
+    const product = await getProductsById(params.productId!);
+    if (!product) {
+      throw new Response("상품을 찾을 수 없습니다.", { status: 404 });
+    }
+
+    const sameSectionProducts = await getProductsData({
+      section: product.section,
+    });
+    const filteredRelatedProducts = sameSectionProducts.filter(
+      (item) => item.id !== product.id,
+    );
+
+    return { product, filteredRelatedProducts };
+  } catch (err: any) {
+    console.log("err ---- designPageLoader", err);
+    throw new Response("상품 데이터를 불러오는 중 오류가 발생했습니다", {
+      status: err.status || 500,
+    });
+  }
+};

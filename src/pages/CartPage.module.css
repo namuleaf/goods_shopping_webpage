@@ -6,7 +6,6 @@
   margin-top: 30px;
 }
 
-/* 페이지 타이틀 */
 .pageTitle {
   font-size: 32px;
   color: var(--accent);
@@ -20,7 +19,20 @@
   margin-bottom: 30px;
 }
 
-/* 장바구니 리스트 */
+.emptyCart {
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  color: var(--text-light);
+}
+
+.emptyIcon {
+  font-size: 40px;
+}
+
 .cartList {
   display: flex;
   flex-direction: column;
@@ -28,7 +40,6 @@
   margin-bottom: 40px;
 }
 
-/* 개별 아이템 카드 */
 .cartItem {
   background-color: transparent;
   border-radius: 10px;
@@ -36,12 +47,11 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.03);
   padding: 20px 30px;
   display: grid;
-  /* 이미지 , 제목 , 단가 ,수량,할인율,합계,삭제 */
-  grid-template-columns: 80px 80px 120px 140px 140px 140px 50px;
+  grid-template-columns: 80px 1.2fr 120px 110px 120px 140px 170px;
   align-items: center;
   gap: 20px;
 }
-/* 이미지 영역 */
+
 .imgWrap a {
   display: block;
   width: 100%;
@@ -60,6 +70,7 @@
   color: inherit;
   cursor: pointer;
 }
+
 .productLink:hover .itemTitle {
   text-decoration: underline;
   color: var(--accent);
@@ -75,14 +86,17 @@
   font-weight: 500;
 }
 
-/* 단가 */
+.itemOption {
+  margin: 6px 0 0;
+  font-size: var(--fs-sm);
+  color: var(--text-light);
+}
+
 .unitPrice {
   text-align: right;
   font-size: var(--fs-sm);
   color: var(--text-light);
 }
-
-/* 수량 조절 */
 
 .countControl {
   display: flex;
@@ -101,7 +115,7 @@
   font-size: var(--fs-md);
   color: var(--text-mid);
   cursor: pointer;
-  pad: 0 5px;
+  padding: 0 5px;
   display: flex;
   align-items: center;
 }
@@ -115,7 +129,24 @@
   font-weight: bold;
 }
 
-/* 삭제 버튼 */
+.actionColumn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+}
+
+.scheduleInfo {
+  text-align: right;
+  font-size: var(--fs-sm);
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+.scheduleInfo p {
+  margin: 0;
+}
+
 .deleteBtn {
   width: 40px;
   height: 40px;
@@ -150,4 +181,23 @@
 .finalPrice {
   font-size: 28px;
   font-weight: bold;
+}
+
+@media (max-width: 900px) {
+  .cartItem {
+    grid-template-columns: 80px 1fr;
+    gap: 12px;
+  }
+
+  .unitPrice,
+  .countControl,
+  .totalPrice,
+  .actionColumn {
+    justify-self: start;
+    text-align: left;
+  }
+
+  .actionColumn {
+    flex-wrap: wrap;
+  }
 }

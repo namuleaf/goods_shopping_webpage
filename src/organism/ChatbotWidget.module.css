@@ -1,12 +1,12 @@
 .widgetContainer {
   position: fixed;
   right: 120px;
-  bottom: 0px;
+  bottom: 0;
   padding-bottom: 5px;
   background-color: white;
   display: grid;
   border-radius: 20px;
-  max-width: 324px;
+  max-width: 360px;
   width: calc(100vw - 48px);
   z-index: 9998;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
@@ -32,6 +32,7 @@
   margin: 6px 0 0;
   font-size: 13px;
   opacity: 0.85;
+  line-height: 1.5;
 }
 
 .badge {
@@ -44,6 +45,7 @@
   padding: 4px 10px;
   font-size: 12px;
   font-weight: 700;
+  color: #fff;
 }
 
 .closeButton {
@@ -54,41 +56,131 @@
   font-size: 20px;
 }
 
-.widgetTabSection {
-  background-color: var(--dark-bg);
-  color: var(--accent-warm);
-  font-weight: bold;
-  padding: 0 14px 10px;
+.tabList {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  background: var(--dark-bg);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tabButton {
+  position: relative;
+  display: grid;
+  gap: 4px;
+  padding: 12px 10px 14px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  text-align: center;
+  transition: color 0.2s ease;
+}
+
+.tabButton span {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.tabButton small {
+  font-size: 11px;
+  letter-spacing: 0.02em;
+}
+
+.tabButtonActive {
+  color: #fff;
+}
+
+.tabButtonActive::after {
+  content: "";
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 0;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--accent-warm);
+}
+
+.panel {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
 }
 
 .messageRow {
-  padding: 12px 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.messageRow > span {
+  margin-top: 10px;
+  font-size: 20px;
+  color: var(--accent);
 }
 
 .chatbotBubble {
+  flex: 1;
   background-color: #eeecec;
   border-radius: 20px;
   padding: 15px 12px;
-  margin-top: 10px;
+}
+
+.chatbotBubble p {
+  margin: 0;
+  line-height: 1.7;
+  color: #333;
 }
 
 .moment {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
   background-color: #eeecec;
-  padding: 10px 14px;
+  padding: 12px 14px;
+  border-radius: 18px;
   font-size: 13px;
+  color: #444;
+}
+
+.moment p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.quickChipGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.quickChip,
+.helpBadge span {
+  border: 1px solid #eadfc9;
+  border-radius: 999px;
+  background: #fff;
+  color: #2f3a4d;
+}
+
+.quickChip {
+  padding: 10px 12px;
+  font-size: 13px;
+  cursor: pointer;
 }
 
 .inputSection {
   display: flex;
   gap: 8px;
-  padding: 14px;
 }
 
-.inputSection input {
+.inputSection input,
+.helpInput input,
+.orderInput input {
   flex: 1;
   border: 1px solid #ddd;
   border-radius: 14px;
-  padding: 10px 12px;
+  padding: 11px 12px;
+  font-size: 14px;
 }
 
 .inputSection button {
@@ -97,28 +189,100 @@
   width: 44px;
   background: var(--accent);
   color: white;
+  cursor: pointer;
 }
 
-.agentBar{
+.card,
+.selfServiceCon,
+.helpInput,
+.orderInput {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  border-radius: 20px;
+  background: #f8f5ef;
+}
+
+.card h3,
+.selfServiceCon h3,
+.helpInput h3,
+.orderInput h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.card p,
+.selfServiceCon p,
+.helpInput p,
+.orderInput p {
+  margin: 0;
+  color: #666;
+  line-height: 1.6;
+  font-size: 13px;
+}
+
+.helpBadge {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.helpBadge span {
+  padding: 7px 10px;
+  font-size: 12px;
+}
+
+.historyList {
+  display: grid;
+  gap: 10px;
+}
+
+.historyItem {
+  display: grid;
+  gap: 4px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid #eee1cf;
+}
+
+.historyItem strong {
+  font-size: 14px;
+}
+
+.historyItem span {
+  font-size: 12px;
+  color: #777;
+}
+
+.agentBar,
+.agentBarSecond,
+.agentBarThird {
   display: flex;
   align-items: center;
-  padding-left: 13px;
+  justify-content: space-between;
   gap: 10px;
-  padding-bottom: 3px;
 }
 
-.agentBar p {
+.agentBar p,
+.agentBarSecond p,
+.agentBarThird p {
   color: var(--dark-bg);
-  font-size: 10px;
+  font-size: 11px;
+  margin: 0;
+  line-height: 1.5;
 }
 
-.agentBar span{
+.agentBar span,
+.agentBarSecond span,
+.agentBarThird span {
   background-color: var(--accent-warm);
-  padding: 4px 6px;
+  padding: 4px 8px;
   border-radius: 12px;
   color: white;
   font-weight: bold;
   font-size: 10px;
+  white-space: nowrap;
 }
 
 @media (max-width: 768px) {

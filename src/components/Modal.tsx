@@ -1,31 +1,46 @@
-/* 
-장바구니 추가 확인 모달
-Link 컴포넌트는 TSX 안에서 클릭으로 이동할 떄 사용
-useNavigate 는 '코드로' 페이지 이동시킬 때 사용
-
-여기서는 장바구니 추가 API 호출 후
-navigate(/cart)로 장바구니 페이지로 이동
-다만 사용자 경험에 따라 선택사항
-ex) 그 페이지에 그대로 남거나, 상품 목록으로 이동, 혹은 이동할 모달을 띄워줌
-*/
-
-import type { Product } from "@/types";
-import css from "./Modal.module.css";
-import React from "react";
 import { useNavigate } from "react-router-dom";
+import type { Product } from "@/types";
 import { addToCart } from "@/api/cartApi";
+import css from "./Modal.module.css";
 
 interface ModalProps {
   product: Product;
   count: number;
+  selectedOption?: string;
+  selectedSize?: string;
+  preferredDeliveryDate?: string;
   onClose: () => void;
 }
 
-export const Modal = ({ product, count, onClose }: ModalProps) => {
+const formatDate = (date: Date) => date.toISOString().slice(0, 10);
+
+const addDays = (date: Date, days: number) => {
+  const nextDate = new Date(date);
+  nextDate.setDate(nextDate.getDate() + days);
+  return nextDate;
+};
+
+export const Modal = ({
+  product,
+  count,
+  selectedOption,
+  selectedSize,
+  preferredDeliveryDate,
+  onClose,
+}: ModalProps) => {
   const navigate = useNavigate();
 
   const handleAddToCart = async () => {
+    const optionValue = selectedOption || "default";
+    const sizeValue = selectedSize || "default-size";
+    const deliveryValue = preferredDeliveryDate || "default-date";
+    const today = new Date();
+    const orderDate = formatDate(today);
+    const deliveryStartDate = formatDate(addDays(today, 2));
+    const deliveryEndDate = formatDate(addDays(today, 4));
+
     const cartItem = {
+      id: `${product.id}-${optionValue}-${sizeValue}-${deliveryValue}`,
       productId: product.id,
       title: product.title,
       img: product.img,
@@ -33,7 +48,16 @@ export const Modal = ({ product, count, onClose }: ModalProps) => {
       discount: product.discount,
       category: product.category,
       count,
+      selectedOption: optionValue,
+      selectedOptionLabel: selectedOption ? `색상: ${selectedOption}` : "기본 옵션",
+      selectedSize: sizeValue,
+      selectedSizeLabel: selectedSize ? `사이즈: ${selectedSize}` : "기본 사이즈",
+      orderDate,
+      preferredDeliveryDate,
+      deliveryStartDate,
+      deliveryEndDate,
     };
+
     await addToCart(cartItem);
     onClose();
     navigate("/cart");
@@ -42,11 +66,9 @@ export const Modal = ({ product, count, onClose }: ModalProps) => {
   return (
     <div className={`${css.modal} ${css.active}`} onClick={onClose}>
       <div className={css.container} onClick={(e) => e.stopPropagation()}>
-        {/* 닫기 버튼 */}
         <button className={css.btnClose} onClick={onClose}>
           <i className="bi bi-x-lg"></i>
         </button>
-        {/* 모달 내용 */}
         <span className={css.check}>
           <i className="bi bi-check-circle"></i>
         </span>
@@ -54,13 +76,20 @@ export const Modal = ({ product, count, onClose }: ModalProps) => {
           <h3 id="cart-modal-title" className={css.modalTitle}>
             장바구니에 추가하시겠습니까?
           </h3>
-          {/* 상품 정보 요약 */}
           <div className={css.productSummary}>
             <p className={css.productTitle}>{product.title}</p>
-            <p className={css.countText}>수량: {count} 개</p>
+            <p className={css.countText}>
+              {selectedOption ? `색상: ${selectedOption}` : "기본 옵션"}
+            </p>
+            <p className={css.countText}>
+              {selectedSize ? `사이즈: ${selectedSize}` : "기본 사이즈"}
+            </p>
+            {preferredDeliveryDate && (
+              <p className={css.countText}>배송 희망일: {preferredDeliveryDate}</p>
+            )}
+            <p className={css.countText}>수량: {count}개</p>
           </div>
         </div>
-        {/* 하단 버튼 그룹 */}
         <div className={css.btnGroup}>
           <button className={css.cancelBtn} onClick={onClose}>
             취소
